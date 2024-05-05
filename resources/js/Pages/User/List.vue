@@ -56,14 +56,14 @@
                                 <td class="flex justify-end px-6 py-4 gap-2 whitespace-nowrap text-right text-sm font-medium">
                                     <PrimaryButton
                                         :as="Link"
-                                        :href="route('users.edit', user.id)"
+                                        :href="route('users.edit', user.uuid)"
                                     >
                                         Edit
                                     </PrimaryButton>
 
                                     <SecondaryButton
                                         :as="Link"
-                                        :href="route('users.show', user.id)"
+                                        :href="route('users.show', user.uuid)"
                                     >
                                         Show
                                     </SecondaryButton>

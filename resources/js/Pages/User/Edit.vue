@@ -45,7 +45,7 @@ const {form, submit} = useForm<UserForm>({
         password_confirmation: "",
         role: props.user.role
     },
-    route("users.update", props.user.id),
+    route("users.update", props.user.uuid),
     "patch"
 );
 

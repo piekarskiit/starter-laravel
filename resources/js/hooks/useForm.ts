@@ -11,7 +11,6 @@ export function useForm<TForm extends Record<string, unknown>>(
     options?: {}
 ) {
     const toast = useToast();
-    toast.info('Hello world!')
 
     const defaultOptions = {
         onSuccess: (page: Page) => {

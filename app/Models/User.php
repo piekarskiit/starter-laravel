@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\UuidModel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,7 +12,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, UuidModel;
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+        'uuid',
         'first_name',
         'last_name',
         'email',
@@ -48,7 +50,14 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
     protected $appends = ['full_name', 'role'];
+
+
 
     protected function fullName(): Attribute
     {
